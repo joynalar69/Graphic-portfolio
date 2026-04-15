@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Joynal Abedin | Graphic Design Portfolio</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        :root {
+            --bg-light: #ffffff;
+            --text-dark: #1e1e2f;
+            --primary-gradient: linear-gradient(135deg, #7c3aed, #2563eb);
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --card-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+            --dark-bg: #0f0f1a;
+            --dark-surface: #1a1a2e;
+            --gray-light: #f9fafb;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            transition: background 0.3s, color 0.2s;
+            scroll-behavior: smooth;
+        }
+
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: #f1f5f9;
+        }
+
+        body.dark-mode .service-card,
+        body.dark-mode .showcase-card,
+        body.dark-mode .timeline-item {
+            background-color: var(--dark-surface);
+            color: #e2e8f0;
+        }
+
+        body.dark-mode .core-expertise {
+            background: linear-gradient(135deg, #4c1d95, #6d28d9);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .full-width-section {
+            width: 100%;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            transition: background 0.3s;
+        }
+        body.dark-mode nav {
+            background: rgba(15,15,26,0.95);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: inherit;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .hire-btn {
+            background: var(--primary-gradient);
+            padding: 8px 22px;
+            border-radius: 40px;
+            color: white !important;
+            font-weight: 600;
+        }
+        .dark-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: inherit;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: inherit;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            width: 100%;
+            max-height: 90vh;
+            min-height: 500px;
+        }
+        .swiper-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            height: 90vh;
+        }
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.5));
+        }
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 30px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+        .slide-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .slide-text .highlight {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(124,58,237,0.25);
+            backdrop-filter: blur(4px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            margin-top: 35px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--primary-gradient);
+            padding: 12px 32px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-outline-light {
+            border: 2px solid white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary);
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--primary) !important;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: white !important;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 70px;
+            height: 4px;
+            background: var(--primary-gradient);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* About Section */
+        .about-full {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+        .about-box {
+            flex: 1;
+            padding: 60px 40px;
+            min-width: 280px;
+        }
+        .about-box:first-child {
+            background: var(--gray-light);
+        }
+        body.dark-mode .about-box:first-child {
+            background: var(--dark-surface);
+        }
+        .core-expertise {
+            background: linear-gradient(135deg, #6d28d9, #4c1d95);
+            color: white;
+        }
+        .core-expertise h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+        .core-expertise ul {
+            list-style: none;
+        }
+        .core-expertise li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item strong {
+            font-size: 2rem;
+            display: block;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: 0.25s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eef;
+            padding-bottom: 15px;
+        }
+        .service-header i {
+            font-size: 2.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .service-header h3 {
+            font-size: 1.5rem;
+        }
+        .service-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .service-items span {
+            background: #f0f0f5;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        body.dark-mode .service-items span {
+            background: #2a2a3e;
+        }
+        .service-items span i {
+            font-size: 0.8rem;
+            color: #10b981;
+        }
+
+        /* Showcase Section (formerly Portfolio) */
+        .showcase-section {
+            background: var(--dark-bg);
+            color: white;
+            padding: 80px 0;
+        }
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .showcase-card {
+            background: #1e1e2e;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .showcase-card:hover {
+            transform: translateY(-8px);
+        }
+        .showcase-img {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .showcase-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .showcase-card:hover .showcase-img img {
+            transform: scale(1.05);
+        }
+        .mockup-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .showcase-info {
+            padding: 18px;
+        }
+        .showcase-info h4 {
+            margin-bottom: 8px;
+        }
+        .showcase-info p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        .showcase-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .showcase-items span {
+            background: rgba(255,255,255,0.1);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s;
+        }
+        .lightbox.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        .lightbox-content img {
+            width: 100%;
+            border-radius: 16px;
+        }
+        .close-lightbox {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Skills Progress */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .skill-item {
+            text-align: center;
+            width: 140px;
+        }
+        .progress-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary) 0deg, #e2e8f0 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        .progress-circle span {
+            background: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .timeline-item {
+            background: var(--gray-light);
+            padding: 18px;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary);
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        form {
+            flex: 1;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 16px;
+            border-radius: 16px;
+            border: 1px solid #ccc;
+            background: transparent;
+        }
+        footer {
+            background: #0b0b14;
+            color: #aaa;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.5rem;
+            transition: 0.2s;
+        }
+        .social-icons a:hover { color: var(--primary); }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px 0;
+                order: 3;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hero-slider {
+                max-height: 70vh;
+            }
+            .swiper-slide {
+                height: 70vh;
+            }
+            .slide-text h1 {
+                font-size: 1.8rem;
+            }
+            .about-full {
+                flex-direction: column;
+            }
+            .about-box {
+                padding: 40px 20px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .services-grid, .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                flex-direction: column;
+            }
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container nav-container">
+        <div class="logo">Joynal<span style="color:#7c3aed;">.</span>Design</div>
+        <div class="nav-right">
+            <a href="#contact" class="hire-btn">Hire Me</a>
+            <button class="dark-toggle" id="darkModeToggle"><i class="fas fa-moon"></i></button>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#showcase">Showcase</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Hero Slider -->
+<section id="home" class="hero-slider swiper mySwiperHero">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <div class="hero-badge">✨ Professional Graphic Designer</div>
+                    <h1>I'm <span class="highlight">Joynal Abedin</span><br>Creative Designer</h1>
+                    <p>8+ Years Experience | 320+ Projects | 95% Satisfaction</p>
+                    <div class="btn-group">
+                        <a href="#showcase" class="btn-primary">View Showcase</a>
+                        <a href="#contact" class="btn-outline-light">Hire Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/265129/pexels-photo-265129.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <div class="hero-badge">🎨 Master of Adobe Suite</div>
+                    <h1>Expert in <span class="highlight">Photoshop & Illustrator</span></h1>
+                    <p>Precision, Scalability & Creative Freedom</p>
+                    <div class="btn-group">
+                        <a href="#showcase" class="btn-primary">See Showcase</a>
+                        <a href="#contact" class="btn-outline-light">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-text">
+                    <div class="hero-badge">⚡ Modern & Strategic</div>
+                    <h1>Brand Identity & <span class="highlight">UI/UX Design</span></h1>
+                    <p>Every design tells a story — let me tell yours</p>
+                    <div class="btn-group">
+                        <a href="#showcase" class="btn-primary">Explore Work</a>
+                        <a href="#contact" class="btn-outline-light">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="full-width-section">
+    <div class="about-full">
+        <div class="about-box" data-aos="fade-right">
+            <p style="font-size: 1.1rem; line-height: 1.7;">I'm Joynal Abedin, a passionate Graphic Designer with 8+ years of creative experience. I craft unique brand identities, eye-catching advertisements, social media graphics, packaging, and UI designs. Every design tells a story — let me tell yours with modern aesthetics and strategic thinking.</p>
+            <div class="stats">
+                <div class="stat-item"><strong>8+ Years</strong><br>Experience</div>
+                <div class="stat-item"><strong>320+ Projects</strong><br>Completed</div>
+                <div class="stat-item"><strong>95%</strong><br>Client Satisfaction</div>
+            </div>
+        </div>
+        <div class="about-box core-expertise" data-aos="fade-left">
+            <h3><i class="fas fa-star"></i> Core Expertise</h3>
+            <ul>
+                <li><i class="fab fa-adobe"></i> Adobe Photoshop (Expert)</li>
+                <li><i class="fas fa-paintbrush"></i> Adobe Illustrator (Expert)</li>
+                <li><i class="fas fa-drafting-compass"></i> Figma (UI/UX)</li>
+                <li><i class="fas fa-film"></i> After Effects (Motion)</li>
+                <li><i class="fas fa-chalkboard-user"></i> Canva & Brand Strategy</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" style="background: #f8fafc; padding: 80px 0;">
+    <div class="container">
+        <h2 class="section-title">Design Services</h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-header">
+                    <i class="fas fa-trademark"></i>
+                    <h3>Logo & Branding</h3>
+                </div>
+                <div class="service-items">
+                    <span><i class="fas fa-check-circle"></i> Logo</span>
+                    <span><i class="fas fa-check-circle"></i> Business Card</span>
+                    <span><i class="fas fa-check-circle"></i> Brand Identity</span>
+                </div>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-header">
+                    <i class="fas fa-ad"></i>
+                    <h3>Advertising</h3>
+                </div>
+                <div class="service-items">
+                    <span><i class="fas fa-check-circle"></i> Poster</span>
+                    <span><i class="fas fa-check-circle"></i> Banner</span>
+                    <span><i class="fas fa-check-circle"></i> Flyer</span>
+                    <span><i class="fas fa-check-circle"></i> Brochure</span>
+                </div>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-header">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Social Media</h3>
+                </div>
+                <div class="service-items">
+                    <span><i class="fas fa-check-circle"></i> Facebook Post</span>
+                    <span><i class="fas fa-check-circle"></i> Instagram Post</span>
+                    <span><i class="fas fa-check-circle"></i> YouTube Thumbnail</span>
+                </div>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-header">
+                    <i class="fas fa-building"></i>
+                    <h3>Corporate</h3>
+                </div>
+                <div class="service-items">
+                    <span><i class="fas fa-check-circle"></i> ID Card</span>
+                    <span><i class="fas fa-check-circle"></i> Certificate</span>
+                    <span><i class="fas fa-check-circle"></i> Invoice</span>
+                </div>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-header">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Packaging</h3>
+                </div>
+                <div class="service-items">
+                    <span><i class="fas fa-check-circle"></i> Product Packaging</span>
+                    <span><i class="fas fa-check-circle"></i> Label Design</span>
+                    <span><i class="fas fa-check-circle"></i> Mockup</span>
+                </div>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-header">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>UI/UX & More</h3>
+                </div>
+                <div class="service-items">
+                    <span><i class="fas fa-check-circle"></i> UI/UX Design</span>
+                    <span><i class="fas fa-check-circle"></i> Motion Design</span>
+                    <span><i class="fas fa-check-circle"></i> Mockup</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Showcase Section (renamed from Portfolio) -->
+<section id="showcase" class="showcase-section">
+    <div class="container">
+        <h2 class="section-title" style="color:white;">Showcase</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="logo">Logo & Branding</button>
+            <button class="filter-btn" data-filter="advertising">Poster & Banner</button>
+            <button class="filter-btn" data-filter="social">Social Media</button>
+            <button class="filter-btn" data-filter="corporate">ID Card & Certificate</button>
+            <button class="filter-btn" data-filter="packaging">Packaging & Label</button>
+        </div>
+        <div class="showcase-grid" id="showcase-grid">
+            <!-- Logo & Branding -->
+            <div class="showcase-card" data-category="logo">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Logo Mockup"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Modern Logo Collection</h4>
+                    <div class="showcase-items"><span>Logo</span><span>Business Card</span><span>Brand Identity</span></div>
+                </div>
+            </div>
+            <!-- Advertising -->
+            <div class="showcase-card" data-category="advertising">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/2880961/pexels-photo-2880961.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Poster"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Creative Poster Design</h4>
+                    <div class="showcase-items"><span>Poster</span><span>Banner</span></div>
+                </div>
+            </div>
+            <div class="showcase-card" data-category="advertising">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Banner & Flyer"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Banner & Flyer Collection</h4>
+                    <div class="showcase-items"><span>Banner</span><span>Flyer</span><span>Brochure</span></div>
+                </div>
+            </div>
+            <!-- Social Media -->
+            <div class="showcase-card" data-category="social">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Facebook Post"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Facebook Post Design</h4>
+                    <div class="showcase-items"><span>Facebook Post</span></div>
+                </div>
+            </div>
+            <div class="showcase-card" data-category="social">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/7369/startup-photos.jpg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Instagram & YouTube"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Instagram & YouTube Thumbnail</h4>
+                    <div class="showcase-items"><span>Instagram Post</span><span>YouTube Thumbnail</span></div>
+                </div>
+            </div>
+            <!-- Corporate -->
+            <div class="showcase-card" data-category="corporate">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/21696/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="ID Card"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>ID Card Design</h4>
+                    <div class="showcase-items"><span>ID Card</span></div>
+                </div>
+            </div>
+            <div class="showcase-card" data-category="corporate">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/566848/pexels-photo-566848.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Certificate & Invoice"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Certificate & Invoice Template</h4>
+                    <div class="showcase-items"><span>Certificate</span><span>Invoice</span></div>
+                </div>
+            </div>
+            <!-- Packaging -->
+            <div class="showcase-card" data-category="packaging">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/3944105/pexels-photo-3944105.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Product Packaging"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Product Packaging Box</h4>
+                    <div class="showcase-items"><span>Product Packaging</span></div>
+                </div>
+            </div>
+            <div class="showcase-card" data-category="packaging">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/3944113/pexels-photo-3944113.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Label Design"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Label Design & Mockup</h4>
+                    <div class="showcase-items"><span>Label Design</span><span>Mockup</span></div>
+                </div>
+            </div>
+            <!-- Extra Mockup showcase -->
+            <div class="showcase-card" data-category="logo">
+                <div class="showcase-img"><img src="https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop" alt="Brand Identity"><div class="mockup-badge">Mockup</div></div>
+                <div class="showcase-info">
+                    <h4>Complete Brand Identity</h4>
+                    <div class="showcase-items"><span>Logo</span><span>Business Card</span><span>Brand Identity</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills -->
+<section style="padding: 80px 0;">
+    <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-item"><div class="progress-circle" data-progress="98"><span>98%</span></div><h4>Photoshop</h4></div>
+            <div class="skill-item"><div class="progress-circle" data-progress="95"><span>95%</span></div><h4>Illustrator</h4></div>
+            <div class="skill-item"><div class="progress-circle" data-progress="88"><span>88%</span></div><h4>Figma</h4></div>
+            <div class="skill-item"><div class="progress-circle" data-progress="85"><span>85%</span></div><h4>After Effects</h4></div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Timeline -->
+<section style="padding: 0 0 80px 0;">
+    <div class="container">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="timeline">
+            <div class="timeline-item"><strong>🎓 Master's in Al-Hadith</strong> - Faridganj Mojidiya Kamil Madrasah (2023) | CGPA: 3.72</div>
+            <div class="timeline-item"><strong>🎓 Bachelor's in Al-Hadith</strong> - Faridganj Mojidiya Kamil Madrasah (2022) | CGPA: 3.77</div>
+            <div class="timeline-item"><strong>📖 HSC/Alim</strong> - 2018 | GPA: 4.93</div>
+            <div class="timeline-item"><strong>📖 SSC/Dakhil</strong> - 2016 | GPA: 4.69</div>
+            <div class="timeline-item"><strong>💻 Advanced Certificate in Computer Technology</strong> - Technical ICT Bangladesh (2024)</div>
+            <div class="timeline-item"><strong>🎨 Graphic Design Basic to Advanced</strong> - OT Academy (2021)</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" style="background: #eef2ff; padding: 80px 0;">
+    <div class="container contact-grid">
+        <div>
+            <h2 class="section-title" style="text-align:left; margin-bottom:20px;">Get In Touch</h2>
+            <p><i class="fas fa-phone-alt"></i> +880 1679338669</p>
+            <p><i class="fas fa-envelope"></i> mdjoynalar@gmail.com</p>
+            <div class="social-icons" style="margin-top: 30px;">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-fiverr"></i></a>
+            </div>
+        </div>
+        <form action="https://formspree.io/f/mnqekkkk" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <textarea rows="4" name="message" placeholder="Tell me about your design project"></textarea>
+            <button type="submit" class="btn-primary" style="border:none;">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Joynal Abedin - Professional Graphic Design Portfolio | All Rights Reserved</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <div class="close-lightbox">&times;</div>
+        <img id="lightbox-img" src="">
+    </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    // Hero Slider
+    const heroSwiper = new Swiper('.mySwiperHero', {
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+    });
+
+    // Dark Mode
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const icon = toggle.querySelector('i');
+        if(document.body.classList.contains('dark-mode')) icon.classList.replace('fa-moon', 'fa-sun');
+        else icon.classList.replace('fa-sun', 'fa-moon');
+    });
+
+    // Progress circles
+    document.querySelectorAll('.progress-circle').forEach(circle => {
+        let percent = circle.getAttribute('data-progress');
+        let angle = (percent / 100) * 360;
+        circle.style.background = `conic-gradient(#7c3aed ${angle}deg, #e2e8f0 0deg)`;
+    });
+
+    // Showcase filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const showcaseItems = document.querySelectorAll('.showcase-card');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            let filterValue = btn.getAttribute('data-filter');
+            showcaseItems.forEach(item => {
+                if(filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Lightbox for showcase images
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeLightbox = document.querySelector('.close-lightbox');
+    
+    document.querySelectorAll('.showcase-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            const img = card.querySelector('.showcase-img img');
+            if(img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            }
+        });
+    });
+    closeLightbox.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', (e) => {
+        if(e.target === lightbox) lightbox.classList.remove('active');
+    });
+
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Scroll to Top
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if(window.scrollY > 300) {
+            scrollTop.classList.add('show');
+        } else {
+            scrollTop.classList.remove('show');
+        }
+    });
+    scrollTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
